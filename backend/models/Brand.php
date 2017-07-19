@@ -18,6 +18,7 @@ class Brand extends \yii\db\ActiveRecord
 {
     public $imgFile;
 
+    //判断是哪个页面提交的请求
     public static function getStatusOptions($hidden_del=true){
         $options =  [
             -1=>'删除', 0=>'隐藏', 1=>'正常'
@@ -41,6 +42,10 @@ class Brand extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name','intro','sort','status'],'required'],
+            //指定上传文件的验证规则 extensions文件的扩展名（开启php fileinfo扩展）
+            // skipOnEmpty 为空跳过该验证
+            ['imgFile','file','extensions'=>['jpg','png','gif']],
             [['intro'], 'string'],
             [['sort', 'status'], 'integer'],
             [['name'], 'string', 'max' => 50],
