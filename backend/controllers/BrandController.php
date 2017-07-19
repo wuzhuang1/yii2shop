@@ -117,6 +117,6 @@ class BrandController extends \yii\web\Controller
     }
 
     public function actionDel($id){
-          
+
     }
 }

@@ -1,4 +1,4 @@
-<?=\yii\bootstrap\Html::a('添加',['goods/add'],['class'=>'btn btn-sm btn-success'])?>
+<?=\yii\bootstrap\Html::a('添加',['brand/add'],['class'=>'btn btn-sm btn-success'])?>
 <table class="table">
     <tr>
         <th>id</th>
