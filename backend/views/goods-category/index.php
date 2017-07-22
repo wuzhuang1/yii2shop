@@ -22,8 +22,8 @@
         <td><?=$model->parent_id?></td>
         <td><?=$model->intro?></td>
         <td>
-            <?=\yii\bootstrap\Html::a('修改',['goods-category/edit'],['class'=>'btn btn-sm btn-success'])?>
-            <?=\yii\bootstrap\Html::a('删除',['goods-category/del'],['class'=>'btn btn-sm btn-success'])?>
+            <?=\yii\bootstrap\Html::a('修改',['goods-category/edit','id'=>$model->id],['class'=>'btn btn-sm btn-success'])?>
+            <?=\yii\bootstrap\Html::a('删除',['goods-category/del','id'=>$model->id],['class'=>'btn btn-sm btn-success'])?>
         </td>
     </tr>
     <?php endforeach;?>
