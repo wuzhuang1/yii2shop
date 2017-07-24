@@ -86,6 +86,7 @@ class BrandController extends \yii\web\Controller
         $model = new Brand();
         $request = new Request();
         if($request->isPost){
+            //接收数据
             $model->load($request->post());
             //实例化文件上传对象
             $model->imgFile = UploadedFile::getInstance($model,'imgFile');
