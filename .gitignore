@@ -33,3 +33,5 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+/backend/controllers/LogoinForm.php
+/backend/controllers/LoginController.php

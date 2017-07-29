@@ -6,6 +6,7 @@
  * Time: 15:17
  */
 namespace backend\controllers;
+use backend\filters\RbacFilter;
 use backend\models\GoodsCategory;
 use yii\web\Controller;
 use yii\web\Request;
@@ -103,5 +104,14 @@ class GoodsCategoryController extends Controller{
         //var_dump($models->parent_id);exit;
 
 
+    }
+    //权限
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className(),
+            ]
+        ];
     }
 }

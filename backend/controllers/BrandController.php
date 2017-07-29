@@ -1,7 +1,7 @@
 <?php
 
 namespace backend\controllers;
-
+use backend\filters\RbacFilter;
 use backend\models\Brand;
 use yii\data\Pagination;
 use yii\web\Request;
@@ -126,8 +126,7 @@ class BrandController extends \yii\web\Controller
 
         return $this->render('add',['model'=>$model]);
     }
-
-
+    //列表
     public function actionIndex()
     {
         $models=Brand::find()->where(['>','status',-1]);
@@ -187,8 +186,17 @@ class BrandController extends \yii\web\Controller
 
         return $this->render('add',['model'=>$model]);
     }
-
+    //删除
     public function actionDel($id){
 
+    }
+    //权限
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className(),
+            ]
+        ];
     }
 }

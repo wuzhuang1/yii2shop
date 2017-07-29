@@ -10,6 +10,7 @@ use backend\models\ArticleCategory;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\Request;
+use backend\filters\RbacFilter;
 
 class ArticleCategoryController extends Controller{
         public function actionIndex()
@@ -41,7 +42,6 @@ class ArticleCategoryController extends Controller{
             return $this->render('add',['model'=>$model]);
     }
 
-
     public function actionEdit($id){
         $model=ArticleCategory::findOne(['id'=>$id]);
         $request=new Request();
@@ -53,6 +53,16 @@ class ArticleCategoryController extends Controller{
             }
         }
         return $this->render('add',['model'=>$model]);
+    }
+
+    //权限
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className(),
+            ]
+        ];
     }
 
 }

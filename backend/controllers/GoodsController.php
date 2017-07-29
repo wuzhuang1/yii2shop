@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\controllers;
+use backend\filters\RbacFilter;
 use backend\models\Goods;
 use backend\models\GoodsSearchForm;
 use yii\web\Controller;
@@ -87,11 +88,6 @@ class GoodsController extends Controller{
         \Yii::$app->session->setFlash('success','删除成功');
         return $this->redirect(['index']);
     }
-
-
-
-
-
 
      // 商品相册
 
@@ -201,5 +197,15 @@ class GoodsController extends Controller{
         }
         return $this->render('view',['model'=>$model]);
 
+    }
+    //权限
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className(),
+                'only'=>['goods/index','goods/add','goods/edit','goods/del'],
+            ]
+        ];
     }
 }
