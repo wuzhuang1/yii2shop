@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\filters\RbacFilter;
 use backend\models\Loginx;
 use backend\models\User;
 use yii\web\Request;

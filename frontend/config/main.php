@@ -16,7 +16,7 @@ return [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'frontend\models\Member',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
@@ -36,14 +36,21 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'sms'=>[
+            'class'=>\frontend\components\AliyunSms::className(),
+            'accessKeyId'=>'LTAIF4JlJQ0cGxTa',
+            'accessKeySecret'=>'RtXBSHEEF4PzyCVrUtz2mn8FkmOT9B',
+            'signName'=>'伍先生茶馆',
+            'templateCode'=>'SMS_80145053'
+        ],
+
     ],
     'params' => $params,
 ];
